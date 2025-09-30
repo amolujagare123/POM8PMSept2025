@@ -4,15 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import pages.Login;
+import util.OpenURL;
 
-public class LoginTest {
+public class LoginTest extends OpenURL {
 
     @Test
     public void loginTest()
     {
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("http://localhost/ip");
 
         Login login = new Login(driver);
         login.setTxtUsername("amolujagare@gmail.com");

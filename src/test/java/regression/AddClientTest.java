@@ -7,21 +7,10 @@ import org.testng.annotations.Test;
 import pages.Login;
 import pages.Menu;
 import pages.AddClient;
+import util.DoLogin;
 
-public class AddClientTest {
-    WebDriver driver;
+public class AddClientTest extends DoLogin {
 
-    @BeforeClass
-    public void doLogin() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("http://localhost/ip");
-
-        Login login = new Login(driver);
-        login.setTxtUsername("amolujagare@gmail.com");
-        login.setTxtPassword("admin123");
-        login.clickLogin();
-    }
 
     @Test
     public void addClientTest() {
@@ -32,9 +21,9 @@ public class AddClientTest {
         // Create AddClientPage object
         AddClient addClient = new AddClient(driver);
 
-   /*     // Fill in Personal Information
+      // Fill in Personal Information
         addClient.enterClientName("Ravi");
-        addClient.enterClientSurname("Sharma");*/
+        addClient.enterClientSurname("Sharma");
 
         // (Language can be selected here later if needed)
          addClient.selectLanguage("English");  // To be handled later
@@ -50,7 +39,7 @@ public class AddClientTest {
         );
         addClient.enterBirthdate("05-Sep-1985");
 
-  /*       // Fill in Contact Information
+        // Fill in Contact Information
 
         // (Gender and Birthdate can be selected here later)
          addClient.selectGender("Female");
@@ -71,8 +60,8 @@ public class AddClientTest {
                 "GSTIN1234XYZ", // VAT ID
                 "PAN1234ABC"    // Tax Code
         );
-*/
+
         // Save the form
-      //  addClient.clickSave();
+       addClient.clickSave();
     }
 }
